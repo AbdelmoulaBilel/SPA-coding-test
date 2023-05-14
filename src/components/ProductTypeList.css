@@ -1,0 +1,46 @@
+ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  li button {
+    margin-left: 1rem;
+  }
+  
+  li input[type="text"] {
+    margin-right: 1rem;
+  }
+  
+  li input[type="text"],
+  li button {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  li button {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  li button:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  li button:disabled {
+    background-color: #ccc;
+    color: #fff;
+    border-color: #ccc;
+    cursor: not-allowed;
+  }
+  

@@ -1,0 +1,38 @@
+CREATE DATABASE IF NOT EXISTS my_database;
+
+USE my_database;
+
+CREATE TABLE ProductType (
+  Id INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(255) NOT NULL,
+  Created_at DATETIME NOT NULL,
+  Attributes JSON NOT NULL,
+  PRIMARY KEY (Id)
+);
+
+CREATE TABLE Product (
+  Id INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(255) NOT NULL,
+  Created_at DATETIME NOT NULL,
+  ProductType INT NOT NULL,
+  AssignedAttributes JSON NOT NULL,
+  PRIMARY KEY (Id),
+  FOREIGN KEY (ProductType) REFERENCES ProductType(Id)
+);
+
+CREATE TABLE Attribute (
+  Id INT NOT NULL AUTO_INCREMENT,
+  Name VARCHAR(255) NOT NULL,
+  Type ENUM('text', 'boolean', 'date', 'select', 'multiselect') NOT NULL,
+  PRIMARY KEY (Id)
+);
+
+CREATE TABLE AttributeValue (
+  Id INT NOT NULL AUTO_INCREMENT,
+  AssignedAttribute INT NOT NULL,
+  Value TEXT,
+  Boolean BOOLEAN,
+  Date DATETIME,
+  PRIMARY KEY (Id),
+  FOREIGN KEY (AssignedAttribute) REFERENCES Attribute(Id)
+);
